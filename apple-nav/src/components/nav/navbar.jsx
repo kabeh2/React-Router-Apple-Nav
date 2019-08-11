@@ -8,9 +8,14 @@ const NavBar = () => {
     opacity: "0.65"
   };
 
-  const navLink = navStore.map(link => {
+  const navLink = navStore.map((link, index) => {
     return (
-      <NavLink exact activeStyle={activeStyle} to={`${link.path}`}>
+      <NavLink
+        exact
+        activeStyle={activeStyle}
+        to={`${link.path}`}
+        key={`${index}-${link.name}`}
+      >
         {!link.img ? link.name : link.img}
       </NavLink>
     );
